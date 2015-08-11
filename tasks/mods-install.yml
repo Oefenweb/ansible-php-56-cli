@@ -1,6 +1,6 @@
 # tasks file for php-56-cli
 ---
-- name: php | mods | install
+- name: mods | install
   apt:
     name: "{{ item.value.dependencies | default(php_56_cli_mods_dependencies[item.key]) | default([]) }}"
     state: latest
@@ -9,6 +9,5 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-mods
-    - php-56-cli-php-mods-install
+    - php-56-cli-mods
+    - php-56-cli-mods-install

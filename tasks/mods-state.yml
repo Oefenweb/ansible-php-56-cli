@@ -1,6 +1,6 @@
 # tasks file for php-56-cli
 ---
-- name: php | mods | get priorities
+- name: mods | get priorities
   command: 'sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" /etc/php5/mods-available/{{ item.0 }}.ini'
   register: php_56_cli_module_priorities
   changed_when: false
@@ -10,11 +10,10 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-mods-state
-    - php-56-cli-php-mods-state-get-priorities
+    - php-56-cli-mods-state
+    - php-56-cli-mods-state-get-priorities
 
-- name: php | mods | disable
+- name: mods | disable
   command: "php5dismod -s cli {{ item.item.0 }}"
   args:
     removes: "/etc/php5/cli/conf.d/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
@@ -23,11 +22,10 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-mods-state
-    - php-56-cli-php-mods-state-disable
+    - php-56-cli-mods-state
+    - php-56-cli-mods-state-disable
 
-- name: php | mods | enable
+- name: mods | enable
   command: "php5enmod -s cli {{ item.item.0 }}"
   args:
     creates: "/etc/php5/cli/conf.d/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
@@ -36,6 +34,5 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-mods-state
-    - php-56-cli-php-mods-state-enable
+    - php-56-cli-mods-state
+    - php-56-cli-mods-state-enable

@@ -1,6 +1,6 @@
 # tasks file for php-56-cli
 ---
-- name: php | install | dependencies
+- name: install | dependencies
   apt:
     name: "{{ item }}"
     state: latest
@@ -8,11 +8,10 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-install
-    - php-56-cli-php-install-dependencies
+    - php-56-cli-install
+    - php-56-cli-install-dependencies
 
-- name: php | install | additional
+- name: install | additional
   apt:
     name: "{{ item }}"
     state: latest
@@ -20,6 +19,5 @@
   tags:
     - configuration
     - php-56-cli
-    - php-56-cli-php
-    - php-56-cli-php-install
-    - php-56-cli-php-install-additional
+    - php-56-cli-install
+    - php-56-cli-install-additional
