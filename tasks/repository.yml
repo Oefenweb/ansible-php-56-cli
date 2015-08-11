@@ -1,0 +1,11 @@
+# tasks file for php-56-cli
+---
+- name: repository
+  apt_repository:
+    repo: 'ppa:ondrej/php5-5.6'
+    update_cache: yes
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-repository
+    - php-56-cli-repository-add

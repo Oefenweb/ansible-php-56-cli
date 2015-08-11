@@ -1,0 +1,28 @@
+# vars file for php-56-cli
+---
+php_56_cli_dependencies:
+  - php5-cli
+
+php_56_cli_mods_dependencies:
+  json:
+    - php5-json
+  mysql:
+    - php5-mysql
+  memcached:
+    - php5-memcached
+  memcache:
+    - php5-memcache
+  mcrypt:
+    - php5-mcrypt
+  gd:
+    - php5-gd
+  curl:
+    - php5-curl
+  redis:
+    - php5-redis
+  xdebug:
+    - php5-xdebug
+  intl:
+    - php5-intl
+  readline:
+    - php5-readline

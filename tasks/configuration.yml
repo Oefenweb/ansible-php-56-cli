@@ -1,0 +1,14 @@
+# tasks file for php-56-cli
+---
+- name: configuration | update /etc/php5/cli/php.ini
+  template:
+    src: etc/php5/cli/php.ini.j2
+    dest: /etc/php5/cli/php.ini
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-configuration
+    - php-56-cli-configuration-general

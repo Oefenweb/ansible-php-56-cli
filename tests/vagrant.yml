@@ -1,0 +1,7 @@
+# test file for php-56-cli
+---
+- hosts: all
+  remote_user: vagrant
+  sudo: true
+  roles:
+    - ../../

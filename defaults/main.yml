@@ -1,0 +1,22 @@
+# defaults file for php_56_cli
+---
+php_56_cli_install: []
+
+php_56_cli_precision: 14
+php_56_cli_serialize_precision: 17
+php_56_cli_disable_functions: []
+php_56_cli_max_execution_time: 0
+php_56_cli_memory_limit: -1
+php_56_cli_error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
+
+php_56_cli_mods_present:
+  opcache: {}
+  json: {}
+  mysql: {}
+  memcache: {}
+  memcached: {}
+  mcrypt: {}
+  gd: {}
+  curl: {}
+
+php_56_cli_mods_absent: {}

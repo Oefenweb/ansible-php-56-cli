@@ -1,0 +1,6 @@
+# test file for php-56-cli
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ../../
