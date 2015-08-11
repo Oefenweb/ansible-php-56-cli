@@ -1,10 +1,8 @@
 # vars file for php-56-cli
 ---
-# php
 php_56_cli_dependencies:
   - php5-cli
 
-## mods
 php_56_cli_mods_dependencies:
   json:
     - php5-json

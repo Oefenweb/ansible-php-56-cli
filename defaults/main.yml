@@ -1,24 +1,14 @@
 # defaults file for php_56_cli
 ---
-# php
 php_56_cli_install: []
 
-## general
-php_56_cli_expose: false
-php_56_cli_max_input_vars: 1000
 php_56_cli_precision: 14
 php_56_cli_serialize_precision: 17
-php_56_cli_realpath_cache_size: 16k
-php_56_cli_realpath_cache_ttl: 120
-php_56_cli_max_execution_time: 30
-php_56_cli_memory_limit: 128M
+php_56_cli_disable_functions: []
+php_56_cli_max_execution_time: 0
+php_56_cli_memory_limit: -1
 php_56_cli_error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
-php_56_cli_post_max_size: 8M
-php_56_cli_upload_max_filesize: 2M
-php_56_cli_save_handler: files
-php_56_cli_session_save_path: /var/lib/php5/sessions
 
-## mods
 php_56_cli_mods_present:
   opcache: {}
   json: {}
