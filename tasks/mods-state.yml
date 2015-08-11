@@ -1,0 +1,41 @@
+# tasks file for php-56-cli
+---
+- name: php | mods | get priorities
+  command: 'sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" /etc/php5/mods-available/{{ item.0 }}.ini'
+  register: php_56_cli_module_priorities
+  changed_when: false
+  with_flattened:
+    - "{{ php_56_cli_mods_present | dictsort }}"
+    - "{{ php_56_cli_mods_absent | dictsort }}"
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-php
+    - php-56-cli-php-mods-state
+    - php-56-cli-php-mods-state-get-priorities
+
+- name: php | mods | disable
+  command: "php5dismod -s cli {{ item.item.0 }}"
+  args:
+    removes: "/etc/php5/cli/conf.d/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
+  with_items: php_56_cli_module_priorities.results
+  when: item.item.0 in php_56_cli_mods_absent.keys()
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-php
+    - php-56-cli-php-mods-state
+    - php-56-cli-php-mods-state-disable
+
+- name: php | mods | enable
+  command: "php5enmod -s cli {{ item.item.0 }}"
+  args:
+    creates: "/etc/php5/cli/conf.d/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
+  with_items: php_56_cli_module_priorities.results
+  when: item.item.0 in php_56_cli_mods_present.keys()
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-php
+    - php-56-cli-php-mods-state
+    - php-56-cli-php-mods-state-enable
