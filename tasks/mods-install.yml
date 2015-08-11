@@ -5,7 +5,6 @@
     name: "{{ item.value.dependencies | default(php_56_cli_mods_dependencies[item.key]) | default([]) }}"
     state: latest
   with_dict: php_56_cli_mods_present
-  notify: reload apache2
   tags:
     - configuration
     - php-56-cli
