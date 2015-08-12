@@ -10,8 +10,8 @@ php_56_cli_memory_limit: -1
 php_56_cli_error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
 
 php_56_cli_mods_present:
-  opcache: {}
   json: {}
+  readline: {}
   mysql: {}
   memcache: {}
   memcached: {}
@@ -19,4 +19,5 @@ php_56_cli_mods_present:
   gd: {}
   curl: {}
 
-php_56_cli_mods_absent: {}
+php_56_cli_mods_absent:
+  opcache: {}
