@@ -3,7 +3,7 @@
 - name: repository
   apt_repository:
     repo: 'ppa:ondrej/php5-5.6'
-    update_cache: yes
+    update_cache: true
   tags:
     - configuration
     - php-56-cli
