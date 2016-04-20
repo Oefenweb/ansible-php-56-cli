@@ -18,8 +18,8 @@ None
 * `php_56_cli_max_execution_time`: [default: `0`]: Maximum execution time of each script, in seconds
 * `php_56_cli_memory_limit`: [default: `-1`]: Maximum amount of memory a script may consume
 * `php_56_cli_error_reporting`: [default: `E_ALL & ~E_DEPRECATED & ~E_STRICT`]: This directive informs PHP of which errors, warnings and notices you would like it to take action for
-* `php_56_cli_openssl_cafile`: [default: `/usr/lib/ssl/cert.pem`]: The location of a Certificate Authority (CA) file on the local filesystem
-* `php_56_cli_openssl_capath`: [default: `/usr/lib/ssl/certs`]: The location of a Certificate Authority (CA) directory on the local filesystem
+* `php_56_cli_openssl_cafile`: [optional]: The location of a Certificate Authority (CA) file on the local filesystem
+* `php_56_cli_openssl_capath`: [optional]: The location of a Certificate Authority (CA) directory on the local filesystem
 
 * `php_56_cli_mods_present`: [default: `{json: {}, readline: {}, mysql: {}, memcache: {}, memcached: {}, mcrypt: {}, gd: {}, curl: {}}`]: Modules to enable
 * `php_56_cli_mods_present.key`: [required]: The identifier of the module (e.g. `curl`)
