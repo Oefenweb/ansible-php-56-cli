@@ -9,6 +9,10 @@ php_56_cli_configuration_file: "/etc/php/{{ php_56_cli_version }}/cli/php.ini"
 php_56_cli_mods_available_path: "/etc/php/{{ php_56_cli_version }}/mods-available"
 php_56_cli_conf_d_file: "/etc/php/{{ php_56_cli_version }}/cli/conf.d"
 
+
+# Some of the dependencies below (e.g. `php-memcached`) do not have a version specific version,
+# see: https://github.com/oerdnj/deb.sury.org/issues/363
+
 php_56_cli_mods_dependencies:
   json:
     - "php{{ php_56_cli_version }}-json"
@@ -17,9 +21,9 @@ php_56_cli_mods_dependencies:
   mysql:
     - "php{{ php_56_cli_version }}-mysql"
   memcached:
-    - "php{{ php_56_cli_version }}-memcached"
+    - php-memcached
   memcache:
-    - "php{{ php_56_cli_version }}-memcache"
+    - php-memcache
   mcrypt:
     - "php{{ php_56_cli_version }}-mcrypt"
   gd:
@@ -27,9 +31,9 @@ php_56_cli_mods_dependencies:
   curl:
     - "php{{ php_56_cli_version }}-curl"
   redis:
-    - "php{{ php_56_cli_version }}-redis"
+    - php-redis
   xdebug:
-    - "php{{ php_56_cli_version }}-xdebug"
+    - php-xdebug
   intl:
     - "php{{ php_56_cli_version }}-intl"
   readline:
