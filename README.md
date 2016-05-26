@@ -1,6 +1,6 @@
 ## php-56-cli 
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-php-56-cli.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-php-56-cli) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-php--56--cli-blue.svg)](https://galaxy.ansible.com/list#/roles/4437)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-php-56-cli.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-php-56-cli) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-php--56--cli-blue.svg)](https://galaxy.ansible.com/tersmitten/php-56-cli)
 
 Set up PHP 5.6 Cli in Ubuntu systems.
 
@@ -21,9 +21,9 @@ None
 * `php_56_cli_openssl_cafile`: [optional]: The location of a Certificate Authority (CA) file on the local filesystem
 * `php_56_cli_openssl_capath`: [optional]: The location of a Certificate Authority (CA) directory on the local filesystem
 
-* `php_56_cli_mods_present`: [default: `{json: {}, readline: {}, mysql: {}, memcache: {}, memcached: {}, mcrypt: {}, gd: {}, curl: {}}`]: Modules to enable
+* `php_56_cli_mods_present`: [default: `{json: {}, xml: {}, readline: {}, mysql: {}, memcache: {}, memcached: {}, mcrypt: {}, gd: {}, curl: {}}`]: Modules to enable
 * `php_56_cli_mods_present.key`: [required]: The identifier of the module (e.g. `curl`)
-* `php_56_cli_mods_present.key.dependencies`: [optional: default: `[]`]: Packages needed by the module (e.g. `php5-curl`)
+* `php_56_cli_mods_present.key.dependencies`: [optional: default: `[]`]: Packages needed by the module (e.g. `php5.6-curl`)
 
 * `php_56_cli_mods_absent`: [default: `{opcache: {}}`]: Modules to disable
 * `php_56_cli_mods_absent.key`: [required]: The identifier of the module (e.g. `opcache`)

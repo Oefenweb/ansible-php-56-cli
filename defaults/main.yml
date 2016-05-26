@@ -1,4 +1,4 @@
-# defaults file for php_56_cli
+# defaults file for php-56-cli
 ---
 php_56_cli_install: []
 
@@ -11,6 +11,7 @@ php_56_cli_error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
 
 php_56_cli_mods_present:
   json: {}
+  xml: {}
   readline: {}
   mysql: {}
   memcache: {}

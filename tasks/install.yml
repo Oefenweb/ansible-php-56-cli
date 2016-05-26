@@ -4,7 +4,7 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: php_56_cli_dependencies
+  with_items: "{{ php_56_cli_dependencies }}"
   tags:
     - configuration
     - php-56-cli
@@ -15,7 +15,7 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: php_56_cli_install
+  with_items: "{{ php_56_cli_install }}"
   tags:
     - configuration
     - php-56-cli

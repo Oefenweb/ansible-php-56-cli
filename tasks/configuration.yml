@@ -1,9 +1,19 @@
 # tasks file for php-56-cli
 ---
-- name: configuration | update /etc/php5/cli/php.ini
+- name: configuration | update alternatives
+  alternatives:
+    name: php
+    path: /usr/bin/php5.6
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-configuration
+    - php-56-cli-configuration-update-alternatives
+
+- name: configuration | update php.ini
   template:
-    src: etc/php5/cli/php.ini.j2
-    dest: /etc/php5/cli/php.ini
+    src: "{{ php_56_cli_configuration_file.lstrip('/') }}.j2"
+    dest: "{{ php_56_cli_configuration_file }}"
     owner: root
     group: root
     mode: 0644
