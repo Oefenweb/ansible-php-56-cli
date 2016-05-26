@@ -12,6 +12,8 @@ php_56_cli_conf_d_file: "/etc/php/{{ php_56_cli_version }}/cli/conf.d"
 php_56_cli_mods_dependencies:
   json:
     - "php{{ php_56_cli_version }}-json"
+  xml:
+    - "php{{ php_56_cli_version }}-xml"
   mysql:
     - "php{{ php_56_cli_version }}-mysql"
   memcached:

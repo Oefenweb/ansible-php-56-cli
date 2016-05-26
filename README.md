@@ -21,7 +21,7 @@ None
 * `php_56_cli_openssl_cafile`: [optional]: The location of a Certificate Authority (CA) file on the local filesystem
 * `php_56_cli_openssl_capath`: [optional]: The location of a Certificate Authority (CA) directory on the local filesystem
 
-* `php_56_cli_mods_present`: [default: `{json: {}, readline: {}, mysql: {}, memcache: {}, memcached: {}, mcrypt: {}, gd: {}, curl: {}}`]: Modules to enable
+* `php_56_cli_mods_present`: [default: `{json: {}, xml: {}, readline: {}, mysql: {}, memcache: {}, memcached: {}, mcrypt: {}, gd: {}, curl: {}}`]: Modules to enable
 * `php_56_cli_mods_present.key`: [required]: The identifier of the module (e.g. `curl`)
 * `php_56_cli_mods_present.key.dependencies`: [optional: default: `[]`]: Packages needed by the module (e.g. `php5.6-curl`)
 
