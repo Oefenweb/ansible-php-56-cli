@@ -5,3 +5,17 @@
   sudo: true
   roles:
     - ../../
+  vars:
+    php_56_cli_mods_present:
+      json: {}
+      readline: {}
+      mysql: {}
+      # Commented out to fix idempotence test:
+      #  Items are always marked as changed, probably because apt says:
+      #  - Note, selecting 'php-memcache' instead of 'php5.6-memcache'
+      #  - Note, selecting 'php-memcached' instead of 'php5.6-memcached'
+      # memcache: {}
+      # memcached: {}
+      mcrypt: {}
+      gd: {}
+      curl: {}
