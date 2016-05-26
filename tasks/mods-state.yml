@@ -12,7 +12,8 @@
     - configuration
     - php-56-cli
     - php-56-cli-mods-state
-    - php-56-cli-mods-state-get-priorities
+    - php-56-cli-mods-state-priorities
+    - php-56-cli-mods-state-priorities-touch
 
 - name: mods | get priorities
   command: sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
@@ -25,7 +26,8 @@
     - configuration
     - php-56-cli
     - php-56-cli-mods-state
-    - php-56-cli-mods-state-get-priorities
+    - php-56-cli-mods-state-priorities
+    - php-56-cli-mods-state-priorities-get
 
 - name: mods | disable
   command: phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
