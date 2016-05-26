@@ -1,5 +1,19 @@
 # tasks file for php-56-cli
 ---
+- name: mods | touch priorities
+  copy:
+    content: ''
+    dest: "{{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini"
+    force: false
+  with_flattened:
+    - "{{ php_56_cli_mods_present | dictsort }}"
+    - "{{ php_56_cli_mods_absent | dictsort }}"
+  tags:
+    - configuration
+    - php-56-cli
+    - php-56-cli-mods-state
+    - php-56-cli-mods-state-get-priorities
+
 - name: mods | get priorities
   command: sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
   register: php_56_cli_module_priorities
