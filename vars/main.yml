@@ -40,3 +40,5 @@ php_56_cli_mods_dependencies:
     - "php{{ php_56_cli_version }}-readline"
   soap:
     - "php{{ php_56_cli_version }}-soap"
+  snmp:
+    - "php{{ php_56_cli_version }}-snmp"
