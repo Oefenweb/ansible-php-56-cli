@@ -16,6 +16,7 @@ php_56_cli_mods_present:
   mysql: {}
   memcache: {}
   memcached: {}
+  mbstring: {}
   mcrypt: {}
   gd: {}
   curl: {}

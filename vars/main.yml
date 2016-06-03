@@ -24,6 +24,8 @@ php_56_cli_mods_dependencies:
     - php-memcached
   memcache:
     - php-memcache
+  mbstring:
+    - "php{{ php_56_cli_version }}-mbstring"
   mcrypt:
     - "php{{ php_56_cli_version }}-mcrypt"
   gd:
