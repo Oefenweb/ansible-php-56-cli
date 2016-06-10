@@ -12,6 +12,8 @@ None
 
 * `php_56_cli_install`: [default: `[]`]: (Additional) Packages to install
 
+* `php_56_cli_update_alternatives`: [default: `true`]: Whether or not to run `update-alternatives`
+
 * `php_56_cli_precision`: [default: `14`]: The number of significant digits displayed in floating point numbers
 * `php_56_cli_serialize_precision`: [default: `17`]: When floats & doubles are serialized store serialize_precision significant digits after the floating point
 * `php_56_cli_disable_functions`: [default: `[]`]: This directive allows you to disable certain functions for security reasons

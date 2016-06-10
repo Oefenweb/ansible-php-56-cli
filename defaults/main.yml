@@ -2,6 +2,8 @@
 ---
 php_56_cli_install: []
 
+php_56_cli_update_alternatives: true
+
 php_56_cli_precision: 14
 php_56_cli_serialize_precision: 17
 php_56_cli_disable_functions: []
