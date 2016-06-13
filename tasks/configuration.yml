@@ -3,7 +3,8 @@
 - name: configuration | update alternatives
   alternatives:
     name: php
-    path: /usr/bin/php5.6
+    path: "/usr/bin/php{{ php_56_cli_version }}"
+  when: php_56_cli_update_alternatives
   tags:
     - configuration
     - php-56-cli
