@@ -1,4 +1,4 @@
-## php-56-cli 
+## php-56-cli, DEPRECATED ([see](https://github.com/Oefenweb/ansible-php-cli-ondrej))
 
 [![Build Status](https://travis-ci.org/Oefenweb/ansible-php-56-cli.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-php-56-cli) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-php--56--cli-blue.svg)](https://galaxy.ansible.com/tersmitten/php-56-cli)
 
