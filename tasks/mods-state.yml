@@ -16,8 +16,9 @@
     - php-56-cli-mods-state-priorities-touch
 
 - name: mods | get priorities
-  command: sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
-  register: php_56_cli_module_priorities
+  command: >
+    sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
+  register: _php_56_cli_module_priorities
   changed_when: false
   with_flattened:
     - "{{ php_56_cli_mods_present | dictsort }}"
@@ -30,10 +31,11 @@
     - php-56-cli-mods-state-priorities-get
 
 - name: mods | disable
-  command: phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
+  command: >
+    phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
   args:
     removes: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
-  with_items: "{{ php_56_cli_module_priorities.results }}"
+  with_items: "{{ _php_56_cli_module_priorities.results }}"
   when: item.item.0 in php_56_cli_mods_absent.keys()
   tags:
     - configuration
@@ -42,10 +44,11 @@
     - php-56-cli-mods-state-disable
 
 - name: mods | enable
-  command: phpenmod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
+  command: >
+    phpenmod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
   args:
     creates: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
-  with_items: "{{ php_56_cli_module_priorities.results }}"
+  with_items: "{{ _php_56_cli_module_priorities.results }}"
   when: item.item.0 in php_56_cli_mods_present.keys()
   tags:
     - configuration

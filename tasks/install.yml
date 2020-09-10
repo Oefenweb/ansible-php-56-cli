@@ -2,9 +2,8 @@
 ---
 - name: install | dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ php_56_cli_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
-  with_items: "{{ php_56_cli_dependencies }}"
   tags:
     - configuration
     - php-56-cli
@@ -13,9 +12,8 @@
 
 - name: install | additional
   apt:
-    name: "{{ item }}"
+    name: "{{ php_56_cli_install }}"
     state: "{{ apt_install_state | default('latest') }}"
-  with_items: "{{ php_56_cli_install }}"
   tags:
     - configuration
     - php-56-cli

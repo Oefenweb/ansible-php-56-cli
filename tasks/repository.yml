@@ -4,6 +4,7 @@
   apt_repository:
     repo: 'ppa:ondrej/php'
     update_cache: true
+    mode: 0644
   tags:
     - configuration
     - php-56-cli
