@@ -1,4 +1,4 @@
-# vars file for php-56-cli
+# vars file
 ---
 php_56_cli_version: 5.6
 

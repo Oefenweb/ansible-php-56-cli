@@ -1,4 +1,4 @@
-# defaults file for php-56-cli
+# defaults file
 ---
 php_56_cli_install: []
 

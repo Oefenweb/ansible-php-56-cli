@@ -1,4 +1,4 @@
-# tasks file for php-56-cli
+# tasks file
 ---
 - include: repository.yml
 - include: install.yml
