@@ -1,6 +1,6 @@
 ## php-56-cli, DEPRECATED ([see](https://github.com/Oefenweb/ansible-php-cli-ondrej))
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-php-56-cli.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-php-56-cli)
+[![CI](https://github.com/Oefenweb/ansible-php-56-cli/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-php-56-cli/actions?query=workflow%3ACI)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-php--56--cli-blue.svg)](https://galaxy.ansible.com/Oefenweb/php-56-cli)
 
 Set up PHP 5.6 Cli in Ubuntu systems.
