@@ -5,6 +5,7 @@
     content: ''
     dest: "{{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini"
     force: false
+    mode: 0644
   with_flattened:
     - "{{ php_56_cli_mods_present | dictsort }}"
     - "{{ php_56_cli_mods_absent | dictsort }}"

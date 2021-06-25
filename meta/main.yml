@@ -2,7 +2,7 @@
 ---
 galaxy_info:
   namespace: oefenweb
-  role_name: php-56-cli
+  role_name: php_56_cli
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up PHP 5.6 Cli in Ubuntu systems
