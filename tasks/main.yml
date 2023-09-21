@@ -1,7 +1,12 @@
 # tasks file
 ---
-- include: repository.yml
-- include: install.yml
-- include: configuration.yml
-- include: mods-install.yml
-- include: mods-state.yml
+- name: repository
+  ansible.builtin.import_tasks: repository.yml
+- name: install
+  ansible.builtin.import_tasks: install.yml
+- name: configuration
+  ansible.builtin.import_tasks: configuration.yml
+- name: mods install
+  ansible.builtin.import_tasks: mods-install.yml
+- name: mods state
+  ansible.builtin.import_tasks: mods-state.yml

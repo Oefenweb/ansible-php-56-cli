@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: mods | touch priorities
-  copy:
+  ansible.builtin.copy:
     content: ''
     dest: "{{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini"
     force: false
@@ -17,7 +17,7 @@
     - php-56-cli-mods-state-priorities-touch
 
 - name: mods | get priorities
-  command: >
+  ansible.builtin.command: >
     sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
   register: _php_56_cli_module_priorities
   changed_when: false
@@ -32,7 +32,7 @@
     - php-56-cli-mods-state-priorities-get
 
 - name: mods | disable
-  command: >
+  ansible.builtin.command: >
     phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
   args:
     removes: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
@@ -45,7 +45,7 @@
     - php-56-cli-mods-state-disable
 
 - name: mods | enable
-  command: >
+  ansible.builtin.command: >
     phpenmod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
   args:
     creates: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"

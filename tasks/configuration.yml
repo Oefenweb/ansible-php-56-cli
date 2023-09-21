@@ -1,10 +1,10 @@
 # tasks file
 ---
 - name: configuration | update alternatives
-  alternatives:
+  community.general.alternatives:
     name: php
     path: "/usr/bin/php{{ php_56_cli_version }}"
-  when: php_56_cli_update_alternatives
+  when: php_56_cli_update_alternatives | bool
   tags:
     - configuration
     - php-56-cli
@@ -12,7 +12,7 @@
     - php-56-cli-configuration-update-alternatives
 
 - name: configuration | update php.ini
-  template:
+  ansible.builtin.template:
     src: "{{ php_56_cli_configuration_file.lstrip('/') }}.j2"
     dest: "{{ php_56_cli_configuration_file }}"
     owner: root
