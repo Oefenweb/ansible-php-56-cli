@@ -3,12 +3,10 @@
 - name: mods | touch priorities
   ansible.builtin.copy:
     content: ''
-    dest: "{{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini"
+    dest: "{{ php_56_cli_mods_available_path }}/{{ item }}.ini"
     force: false
     mode: 0644
-  with_flattened:
-    - "{{ php_56_cli_mods_present | dictsort }}"
-    - "{{ php_56_cli_mods_absent | dictsort }}"
+  with_items: "{{ (php_56_cli_mods_present.keys() | list) + (php_56_cli_mods_absent.keys() | list) }}"
   tags:
     - configuration
     - php-56-cli
@@ -18,12 +16,10 @@
 
 - name: mods | get priorities
   ansible.builtin.command: >
-    sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item.0 }}.ini
+    sed -ne "s/^;[ ]\?priority=\([0-9]\+\)$/\\1/p" {{ php_56_cli_mods_available_path }}/{{ item }}.ini
   register: _php_56_cli_module_priorities
   changed_when: false
-  with_flattened:
-    - "{{ php_56_cli_mods_present | dictsort }}"
-    - "{{ php_56_cli_mods_absent | dictsort }}"
+  with_items: "{{ (php_56_cli_mods_present.keys() | list) + (php_56_cli_mods_absent.keys() | list) }}"
   tags:
     - configuration
     - php-56-cli
@@ -31,13 +27,19 @@
     - php-56-cli-mods-state-priorities
     - php-56-cli-mods-state-priorities-get
 
+- name: debug
+  debug:
+    msg: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item }}.ini"
+  with_items: "{{ _php_56_cli_module_priorities.results }}"
+  when: item.item in php_56_cli_mods_absent.keys()
+
 - name: mods | disable
   ansible.builtin.command: >
-    phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
+    phpdismod -v {{ php_56_cli_version }} -s cli {{ item.item }}
   args:
-    removes: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
+    removes: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item }}.ini"
   with_items: "{{ _php_56_cli_module_priorities.results }}"
-  when: item.item.0 in php_56_cli_mods_absent.keys()
+  when: item.item in php_56_cli_mods_absent.keys()
   tags:
     - configuration
     - php-56-cli
@@ -46,11 +48,11 @@
 
 - name: mods | enable
   ansible.builtin.command: >
-    phpenmod -v {{ php_56_cli_version }} -s cli {{ item.item.0 }}
+    phpenmod -v {{ php_56_cli_version }} -s cli {{ item.item }}
   args:
-    creates: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item.0 }}.ini"
+    creates: "{{ php_56_cli_conf_d_file }}/{{ item.stdout | default(20, true) }}-{{ item.item }}.ini"
   with_items: "{{ _php_56_cli_module_priorities.results }}"
-  when: item.item.0 in php_56_cli_mods_present.keys()
+  when: item.item in php_56_cli_mods_present.keys()
   tags:
     - configuration
     - php-56-cli
