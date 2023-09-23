@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: mods | install
-  apt:
+  ansible.builtin.apt:
     name: "{{ item.value.dependencies | default(php_56_cli_mods_dependencies[item.key]) | default([]) }}"
     state: "{{ apt_install_state | default('latest') }}"
   with_dict: "{{ php_56_cli_mods_present }}"
