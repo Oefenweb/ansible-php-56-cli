@@ -41,7 +41,7 @@ None
 ---
 - hosts: all
   roles:
-    - php-56-cli
+    - oefenweb.php-56-cli
 ```
 
 #### License
