@@ -5,7 +5,7 @@
     content: ''
     dest: "{{ php_56_cli_mods_available_path }}/{{ item }}.ini"
     force: false
-    mode: 0644
+    mode: '0644'
   with_items: "{{ (php_56_cli_mods_present.keys() | list) + (php_56_cli_mods_absent.keys() | list) }}"
   tags:
     - configuration
